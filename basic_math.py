@@ -5,7 +5,7 @@
 """
 여기서 간단한 수학을 하는 프로그램을 만들것입니다. 
 """
-import numpy as np
+#import numpy as np
 
 def get_greatest(number_list):
     """
@@ -64,7 +64,8 @@ def get_mean(number_list):
             >>> bm.get_mean(number_list)
             47
     """
-    return np.mean(number_list)
+    return sum(number_list)/len(number_list)
+    #return np.mean(number_list)
 
 
 def get_median(number_list):
@@ -87,4 +88,10 @@ def get_median(number_list):
             >>> bm.get_median(number_list2)
             35.5
     """
-    return np.median(number_list)
+    number_list.sort()
+    answer = number_list[int(len(number_list)/2)]
+    if len(number_list)%2 == 0 :
+        answer += number_list[int(len(number_list)/2-1)]
+        answer /= 2
+    return answer
+    #return np.median(number_list)
